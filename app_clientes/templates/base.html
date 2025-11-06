@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>{% block title %}Sistema Taller{% endblock %}</title>
+  <!-- Bootstrap CSS (CDN) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* Paleta clara y tenue (tonos pasteles/verde suave) */
+    :root{
+      --bg: #f6faf4;       /* fondo general, muy claro */
+      --muted-text: #2b3a33;/* texto principal suave */
+      --brand: #1f6b54;    /* color del nombre de la app */
+      --muted-border: #e7efe8; /* bordes sutiles */
+    }
+    body { background: var(--bg); color: var(--muted-text); }
+    .navbar-brand { font-weight: 700; color: var(--brand) !important; }
+    footer { position: fixed; bottom: 0; left: 0; right: 0; background:#fff; padding:8px 16px; border-top:1px solid var(--muted-border);}
+    .main-container { padding-bottom: 70px; } /* espacio para footer fijo */
+    /* Ajustes opcionales para botones/links más suaves */
+    a.nav-link { color: rgba(43,58,51,0.9); }
+    .btn-primary { background-color: #4aa67a; border-color: #438f68; }
+    .btn-primary:hover{ background-color:#3f8b69; border-color:#397b5f; }
+  </style>
+  {% block extra_head %}{% endblock %}
+</head>
+<body>
+    {% include 'navbar.html' %}
+    <div class="container main-container mt-4">
+        {% block content %}{% endblock %}
+    </div>
+
+    {% include 'footer.html' %}
+
+    <!-- Bootstrap JS (CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>
